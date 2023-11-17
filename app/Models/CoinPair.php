@@ -43,13 +43,4 @@ class CoinPair
     {
         return $this->lowPrice;
     }
-
-    public function __toString(): string
-    {
-        return "Symbol: " . $this->getSymbol() .
-            "\nPrice change: " . $this->getPriceChange() .
-            "\nHighPrice: " . $this->getHighPrice() .
-            "\nLowPrice: " . $this->getLowPrice();
-    }
-
 }

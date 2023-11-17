@@ -7,7 +7,9 @@ use App\Models\CoinPairCollection;
 
 class Binance
 {
-    public static function get(): CoinPairCollection
+    private CoinPairCollection $coinPairCollection;
+
+    public function __construct()
     {
         $json = json_decode(
             file_get_contents(
@@ -25,8 +27,12 @@ class Binance
                 $pair->lowPrice
             );
         }
-        return new CoinPairCollection($coinPairs);
+        $this->coinPairCollection = new CoinPairCollection($coinPairs);
     }
 
+    public function get($symbol): ?CoinPair
+    {
+        return $this->coinPairCollection->get($symbol);
+    }
 
 }
