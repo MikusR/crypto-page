@@ -13,8 +13,8 @@ class Binance
     {
         $json = json_decode(
             file_get_contents(
-//                "https://api4.binance.com/api/v3/ticker/24hr"
-                __DIR__ . "/24hr.json"
+                "https://api4.binance.com/api/v3/ticker/24hr"
+//                __DIR__ . "/24hr.json"
             )
         );
 

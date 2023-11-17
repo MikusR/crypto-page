@@ -29,4 +29,20 @@ class CoinPairController
             ]
         );
     }
+
+    public function search(array $vars): Response
+    {
+//        if (!isset($_GET['coinpair'])) {
+//            return new Response('error', []);
+//        };
+        $term = strtoupper($_GET['coinpair']);
+        $term = ($this->api->get($term)->getSymbol()) ?? "BTCUSDT";
+        return new Response(
+            "Search\\results", [
+                "coinPairs" => new CoinPairCollection([
+                    $this->api->get($term)
+                ])
+            ]
+        );
+    }
 }
