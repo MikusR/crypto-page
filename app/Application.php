@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace App;
 
-use App\Api\Binance;
-use App\Models\CoinPairCollection;
 use Twig\Environment;
 use Twig\Extension\DebugExtension;
 use Twig\Loader\FilesystemLoader;
@@ -15,17 +13,6 @@ class Application
 {
     public function run(): void
     {
-//        while (true) {
-//            echo "enter coin pair\n";
-//            $choice = readline();
-//            if (strlen($choice) <= 3) {
-//                $choice = strtoupper($choice) . 'BTC';
-//            }
-//            echo ($this->pairCollection->get(strtoupper($choice))) ?? 'No such coin';
-//            echo "\n";
-//
-//        }
-
         $loader = new FilesystemLoader(__DIR__ . '/../app/Views');
         $twig = new Environment($loader, ['debug' => true]);
         $twig->addExtension(new DebugExtension());

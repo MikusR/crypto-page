@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace App;
 
-use App\Models\CoinPairCollection;
-
 class Response
 {
     private string $viewName;
